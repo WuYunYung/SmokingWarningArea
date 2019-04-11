@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'learn',  # 我的app
     # 不加入的话就无法让django找到你的静态文件和模板文件
     'calc',
+    'people',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -78,8 +80,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'db_mysite',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
@@ -106,9 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'  # 修改语言设定
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'  # 修改区时设定
 
 USE_I18N = True
 
