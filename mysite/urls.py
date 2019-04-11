@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from learn import views as learn_views
 from calc import views as calc_views
+from blog import views as blog_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', learn_views.test, name='test'),  # 增加一条网址匹配规则
+    # path('', learn_views.test, name='test'),  # 增加一条网址匹配规则
+    path('', blog_views.homepage, name='homepage'),
     path('add/', calc_views.add, name='add'),
     path('add/<int:a>/<int:b>/', calc_views.add2, name='add2'),
-    path('', calc_views.index, name='home')
+    # path('', calc_views.index, name='home')
 ]
