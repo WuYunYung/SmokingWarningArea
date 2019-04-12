@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>欢迎光临我的博客</title>
+</head>
+<body>
+    <h1>欢迎光临我的博客</h1>
+    <hr>
+    {% comment %} {{posts}} {% endcomment %}
+    {%for post in posts%}
+    <a href="/post/{{post.slug}}"><h4>{{post.title}}</h4></a>
+    <small><p>{{post.body}}</p></small>
+    {% endfor %}
+    <hr>
+    <h3>现在时间是:{{ now  }}</h3>
+</body>
+</html>
