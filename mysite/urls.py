@@ -25,5 +25,6 @@ urlpatterns = [
     path('', blog_views.homepage, name='homepage'),
     path('add/', calc_views.add, name='add'),
     path('add/<int:a>/<int:b>/', calc_views.add2, name='add2'),
+    path('post/<slug:slug>/', blog_views.showpost)
     # path('', calc_views.index, name='home')
 ]
