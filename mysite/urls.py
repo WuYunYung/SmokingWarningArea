@@ -15,16 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from learn import views as learn_views
-from calc import views as calc_views
+# from learn import views as learn_views
+# from calc import views as calc_views
 from blog import views as blog_views
+from home import views as home_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', learn_views.test, name='test'),  # 增加一条网址匹配规则
-    path('', blog_views.homepage, name='homepage'),
-    path('add/', calc_views.add, name='add'),
-    path('add/<int:a>/<int:b>/', calc_views.add2, name='add2'),
-    path('post/<slug:slug>/', blog_views.showpost)
+    path('', home_views.homepage,),  # 增加一条网址匹配规则
+    path('blog/', blog_views.homepage,),
+    # path('add/', calc_views.add, name='add'),
+    # path('add/<int:a>/<int:b>/', calc_views.add2, name='add2'),
+    path('blog/post/<slug:slug>/', blog_views.showpost)
     # path('', calc_views.index, name='home')
 ]
