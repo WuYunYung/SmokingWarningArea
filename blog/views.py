@@ -8,7 +8,7 @@ from .models import Post
 
 
 def homepage(request):
-    template = get_template('blog.html')
+    template = get_template('blog/blog.html')
     # 获取模板
 
     now = datetime.now()
@@ -18,7 +18,7 @@ def homepage(request):
 
 
 def showpost(request, slug):
-    template = get_template('post.html')
+    template = get_template('blog/post.html')
     try:
         post = Post.objects.get(slug=slug)
         if post != None:
