@@ -19,11 +19,13 @@ from django.urls import path
 # from calc import views as calc_views
 from blog import views as blog_views
 from home import views as home_views
+from map import views as map_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_views.homepage,),  # 增加一条网址匹配规则
     path('blog/', blog_views.homepage,),
+    path('map/', map_views.homepage,),
     # path('add/', calc_views.add, name='add'),
     # path('add/<int:a>/<int:b>/', calc_views.add2, name='add2'),
     path('blog/post/<slug:slug>/', blog_views.showpost)
