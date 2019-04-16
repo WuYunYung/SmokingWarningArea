@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>看到文章开心吗？</title>
-</head>
-<body>
-    <h1>{{post.title}}</h1>
-    <hr>
-    <p>{{post.body}}</p>
-    <hr>
-    <h3><a href="/">溜了溜了</a></h3>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}
+{{post.title}}
+{% endblock title %}
+{% block content %}
+<div class="card">
+  <div class="card-header">{{post.title}}</div>
+  <div class="card-body"><p>{{post.body}}</p>
+  <a href="/blog/"><button type="button" class="btn btn-primary">溜了溜了</button></a>
+  </div> 
+</div>
+{% endblock content %}
