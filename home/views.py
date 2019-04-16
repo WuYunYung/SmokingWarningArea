@@ -7,6 +7,10 @@ import os
 # Create your views here.
 def homepage(request):
     now = datetime.now()
+    filePath = '.\static\images'
+    filePathList = os.listdir(filePath)
+    listNum = len(filePathList)
+    List = map(str, range(listNum))  # 一个长度为100的 List
     template = get_template('home/index.html')
     html = template.render(locals())
     return HttpResponse(html)
