@@ -11,41 +11,54 @@
 map
 {% endblock title %}
 {% block content %}
-<div id="container"></div>
-<div class="info">
-    <p id='info'></p>
+
+
+
+<div id="container" style="height:500px">
+</div>
+<div class="row">
+    <div class="col">
+        <form method="POST">
+            <input type="submit" value="这里有人吸烟！" class="btn btn-primary">
+        </form>
+    </div>
+
+    <div class="info" class="col">
+        <p id='info'></p>
+    </div>
 </div>
 <script type="text/javascript"
-        src="https://webapi.amap.com/maps?v=1.4.14&key=d152e6de5c8c6c2631f32e6accffedb5&plugin=AMap.CitySearch"></script>
+    src="https://webapi.amap.com/maps?v=1.4.14&key=d152e6de5c8c6c2631f32e6accffedb5&plugin=AMap.CitySearch"></script>
 {% comment %}
 <script type="text/javascript"
-        src="https://webapi.amap.com/maps?v=1.4.14&key=d152e6de5c8c6c2631f32e6accffedb5"></script>  {% endcomment %}
+    src="https://webapi.amap.com/maps?v=1.4.14&key=d152e6de5c8c6c2631f32e6accffedb5"></script> {% endcomment %}
 <script type="text/javascript">
     var map = new AMap.Map("container", {
+        mapStyle: 'amap://styles/macaron', //设置地图的显示样式
         resizeEnable: true,
         center: [116.397428, 39.90923],
         zoom: 13
     });
 
-    AMap.plugin('AMap.Geolocation', function() {
+    AMap.plugin('AMap.Geolocation', function () {
         var geolocation = new AMap.Geolocation({
             enableHighAccuracy: false,//是否使用高精度定位，默认:true 
-            buttonPosition:'RB',    //定位按钮的停靠位置
+            buttonPosition: 'RB',    //定位按钮的停靠位置
             buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
             zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
 
         });
         map.addControl(geolocation);
-        geolocation.getCurrentPosition(function(status,result){
-            if(status=='complete'){
+        geolocation.getCurrentPosition(function (status, result) {
+            if (status == 'complete') {
                 onComplete(result)
-            }else{
+            } else {
                 onError(result)
             }
         });
     });
 
-    
+
 
     //获取用户所在城市信息
     function showCityInfo() {
@@ -68,4 +81,5 @@ map
     }
     showCityInfo();
 </script>
+
 {% endblock content %}
