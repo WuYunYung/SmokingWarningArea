@@ -1,13 +1,18 @@
 {% block footer %}
-<div class="jumbotron fixed-bottom" style="margin-bottom: 0rem;padding: 32px;">
-    {% if now %}
-    <p>
-        现在时间是:{{now}}
-    </p>
-    {% else %}
-    <p>
-        爱看不看不看拉倒。。。
-    </p>
-    {% endif %}
-</div>
+<footer class="footer mt-auto py-3 ">
+    <div class="container">
+        <span class="text-muted">
+            {% if now %}
+            <p>
+                现在时间是:{{now}}
+            </p>
+            {% else %}
+            <p>
+                爱看不看不看拉倒。。。
+            </p>
+            {% endif %}
+        </span>
+        <p class="float-right"><a href="#">Back to top</a></p>
+    </div>
+</footer>
 {% endblock footer %}
