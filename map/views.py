@@ -7,6 +7,6 @@ import os
 # Create your views here.
 def homepage(request):
     now = datetime.now()
-    template = get_template('map/map.html')
+    template = get_template('map/cover-map.html')
     html = template.render(locals())
     return HttpResponse(html)
