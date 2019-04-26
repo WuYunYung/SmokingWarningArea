@@ -7,7 +7,7 @@ from .models import Post
 # Create your views here.
 
 
-def homepage(request):
+def blogpage(request):
     template = get_template('blog/blog.html')
     # 获取模板
 

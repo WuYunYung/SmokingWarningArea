@@ -24,7 +24,12 @@ map
         </div>
         <div class="">
             <p id='result'></p>
+            <p>{{message}}</p>
         </div>
+        <form method='POST'>
+            <input type="hidden" id="textPosition" name="textPosition"><br>
+            <input type="submit" class="btn btn-danger" value="这里有人吸烟！">
+        </form>
     </div>
 </div>
 <div style=" float:left">
@@ -33,4 +38,13 @@ map
 <script type="text/javascript"
     src="https://webapi.amap.com/maps?v=1.4.14&key=d152e6de5c8c6c2631f32e6accffedb5&plugin=AMap.CitySearch"></script>
 <script type="text/javascript" src="../../static/JS/map.js"></script>
+<script type="text/javascript">
+{% for address in all_address %}
+var marker{{address.id}} = new AMap.Marker({
+    position: new AMap.LngLat({{address.longitude}}, {{address.latitude}}), 
+    icon: '../../static/images/icon/warn.png', 
+});
+map.add(marker{{address.id}});
+{% endfor %}
+</script>
 {% endblock map_content %}

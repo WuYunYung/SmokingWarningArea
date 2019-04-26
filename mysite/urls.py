@@ -24,8 +24,8 @@ from map import views as map_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_views.homepage,),  # 增加一条网址匹配规则
-    path('blog/', blog_views.homepage,),
-    path('map/', map_views.homepage,),
+    path('blog/', blog_views.blogpage,),
+    path('map/', map_views.mappage,),
     # path('add/', calc_views.add, name='add'),
     # path('add/<int:a>/<int:b>/', calc_views.add2, name='add2'),
     path('blog/post/<slug:slug>/', blog_views.showpost)
