@@ -1,15 +1,12 @@
-<!-- templates/back_to_top_func.html -->
-
-<!-- 参考了 鹦鹉 的代码，在此致谢 -->
-<!-- https://ezbox.idv.tw/131/back-to-top-button-without-images -->
-
 <button type="button" id="BackTop" class="toTop-arrow" style="z-index: 100;"></button>
 
 <script>
     // 向上滚动的函数
     $(function () {
         $('#BackTop').click(function () {
-            $('html,body').animate({ scrollTop: 0 }, 500);
+            $('html,body').animate({
+                scrollTop: 0
+            }, 500);
         });
         $(window).scroll(function () {
             if ($(this).scrollTop() > 300) {

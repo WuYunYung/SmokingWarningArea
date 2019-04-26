@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block title %}
-看到博客开心吗？
+Blog
 {% endblock title %}
 {% block content %}
-<div class="list-group">
-    {% for post in posts %}
+<div class="container">
+    <div class="list-group">
+        {% for post in posts %}
 
-    <a href="post/{{post.slug}}" class="list-group-item list-group-item-action">{{post.title}}</a>
+        <a href="post/{{post.slug}}" class="list-group-item list-group-item-action">{{post.title}}</a>
 
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
+
 {% endblock content %}
