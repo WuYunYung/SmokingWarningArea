@@ -8,5 +8,6 @@ class Address(models.Model):
     latitude = models.FloatField()
     pub_date = models.DateTimeField(default=timezone.now)
 
+
 # longitude精度
 # latitude纬度

@@ -13,7 +13,7 @@ def mappage(request):
     template = get_template('map/map.html')
 
     all_address = models.Address.objects.all()
-    print(all_address)
+    # print(all_address)
 
     if request.method == 'POST':
         try:
@@ -23,7 +23,7 @@ def mappage(request):
             address = models.Address.objects.create(
                 longitude=user_longi, latitude=user_lati)
 
-            print(user_longi+','+user_lati)
+            # print(user_longi+','+user_lati)
 
         except:
             message = '好像没有检测到地址哦~'

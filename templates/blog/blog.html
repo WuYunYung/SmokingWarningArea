@@ -4,13 +4,36 @@ Blog
 {% endblock title %}
 {% block content %}
 <div class="container">
-    <div class="list-group">
-        {% for post in posts %}
+    <div class="card">
+        {% include "../home/index.html" %}
+        <div class="card-body">
+            
+                {% for post in posts %}
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        <h5>{{post.title}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>{{post.body|truncatechars:40}}</p>
+                    </div>
+                    <div class="card-footer">
 
-        <a href="post/{{post.slug}}" class="list-group-item list-group-item-action">{{post.title}}</a>
-
-        {% endfor %}
+                        <div style="float:left">
+                            <p>发布时间：{{post.pub_date}}</p>
+                        </div>
+                        <div style="float:right">
+                            <a href="post/{{post.slug}}" class="">
+                                <button type="button" class="btn btn-outline-primary">瞧一瞧</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {% endfor %}
+    
+        </div>
     </div>
+
 </div>
 
 {% endblock content %}

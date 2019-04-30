@@ -1,0 +1,56 @@
+<div class="modal fade" id="moodModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+
+                <h4 class="modal-title"><i class="fas fa-theater-masks"
+                        style="margin-right:10px;"></i><span><small>有小情绪吗？<span
+                                class="text-muted"><small>写下你的想法~</small></span></small></span></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form method='POST' name="myForm" action="/mood/" onsubmit="return validateForm()">
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>标题：</label>
+                        <input type="text" class="form-control" id="ftitle" name="fTitle" placeholder="怎么啦？" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">现在的心情：</label>
+                        <select class="form-control" id="mood" name="mood">
+                            <option value="惊讶"><i class="far fa-surprise"></i>我的天！？</option>
+                            <option value="开心"><i class="far fa-grin-wink"></i>开心开心！</option>
+                            <option value="难过"><i class="far fa-frown"></i>宝宝心里苦。</option>
+                            <option value="白眼"><i class="far fa-meh-rolling-eyes"></i>呵！</option>
+                            <option value="愤怒"><i class="far fa-angry"></i>哇！好气啊！</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">说点什么吧：</label>
+                        <textarea class="form-control" id="text" name="text" rows="5" id="comment"
+                            placeholder="怎么回事？说说看~"></textarea>
+                    </div>
+                    <input type="hidden" name="moodPosition" id="moodPosition">
+                </div>
+
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button submit" class="btn btn-primary"><i class="fas fa-share"></i>分享</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function validateForm() {
+        var x = document.forms["myForm"]["fTitle"].value;
+        if (x == null || x == "") {
+            alert("标题需要填写哦~");
+            return false;
+        }
+    }
+</script>

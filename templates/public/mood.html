@@ -1,0 +1,67 @@
+<button type="button" id="Mood" class="post-mood" style="z-index: 100;" data-toggle="modal" data-target="#moodModal">
+</button>
+
+
+
+<script>
+    // 向上滚动的函数
+    $(function () {
+        $('#Mood').click(function () {
+            $('html,body').animate({
+                // scrollTop: 0
+            }, 500);
+        });
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('#Mood').fadeIn(300);
+            } else {
+                $('#Mood').stop().fadeOut(300);
+            }
+        }).scroll();
+    });
+</script>
+
+<style>
+    /* 按钮边框的大小、位置、样式 */
+    .post-mood {
+        width: 3.5rem;
+        height: 3.5rem;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        border-radius: 20%;
+        opacity: 0.7;
+        background: rgb(233, 233, 42);
+        cursor: pointer;
+        position: fixed;
+        right: 1.5rem;
+        bottom: 5.1rem;
+        display: none;
+    }
+
+    /* 绘制按钮中的向上箭头 */
+    .post-mood::before,
+    .post-mood::after {
+        width: 25px;
+        height: 15px;
+        border-radius: 8px;
+        background: rgb(214, 102, 102);
+        position: absolute;
+        content: "";
+    }
+
+    .post-mood::before {
+        transform: rotate(45deg) translate(-20%, -30%);
+        left: 0.72rem;
+    }
+
+    .post-mood::after {
+        transform: rotate(-45deg) translate(20%, -30%);
+        right: 0.72rem;
+    }
+
+    /* 取消点击按钮时的聚焦 */
+    .post-mood:focus {
+        outline: none;
+    }
+</style>

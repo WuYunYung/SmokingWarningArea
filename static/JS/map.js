@@ -63,6 +63,7 @@ function onComplete(data) {
     str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
     document.getElementById('result').innerHTML = str.join('<br>');
     document.getElementById('textPosition').value = mystr;
+    document.getElementById('moodPosition').value = mystr;
     // document.getElementById('mytext').value = "aaaa";
     // customersForm.textPosition.value = 'data.position';
 }

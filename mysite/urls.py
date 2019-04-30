@@ -24,10 +24,10 @@ from map import views as map_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_views.homepage,),  # 增加一条网址匹配规则
-    path('blog/', blog_views.blogpage,),
+    path('mood/', blog_views.blogpage,),
     path('map/', map_views.mappage,),
     # path('add/', calc_views.add, name='add'),
     # path('add/<int:a>/<int:b>/', calc_views.add2, name='add2'),
-    path('blog/post/<slug:slug>/', blog_views.showpost)
+    path('mood/post/<slug:slug>/', blog_views.showpost)
     # path('', calc_views.index, name='home')
 ]

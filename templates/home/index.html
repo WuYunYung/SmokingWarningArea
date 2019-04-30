@@ -1,9 +1,4 @@
-{% extends "base.html" %}
-{% block title %}
-Homepage
-{% endblock title %}
-{% block content %}
-<div id="demo" class="carousel slide" data-ride="carousel">
+<div id="demo" class="carousel slide" data-ride="carousel" style="margin-bottom:0rem;">
 
     <!-- 指示符 -->
     <ul class="carousel-indicators">
@@ -22,11 +17,11 @@ Homepage
         {% for i in filePathList %}
         {% if forloop.first %}
         <div class="carousel-item active">
-            <img src="../static/images/{{i}}">
+            <img src="../static/images/imageBox/{{i}}">
         </div>
         {% else %}
         <div class="carousel-item">
-            <img src="../static/images/{{i}}">
+            <img src="../static/images/imageBox/{{i}}">
         </div>
         {% endif %}
         {% endfor %}
@@ -41,7 +36,3 @@ Homepage
     </a>
 
 </div>
-
-
-
-{% endblock content %}
