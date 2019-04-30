@@ -30,12 +30,11 @@ def blogpage(request):
             user_title = str(request.POST.get("fTitle"))
             user_slug = str(binascii.b2a_hex(
                 user_title.encode('utf-8')))[2:-2]
-            print(user_slug)
+
             user_mood = str(request.POST.get('mood'))
             user_text = str(request.POST.get('text'))
             user_addr_id = int(address.id)
-            print(user_addr_id)
-            print("is here 1")
+
             user_blog = Post(
                 mood=user_mood,
                 title=user_title,
@@ -43,11 +42,25 @@ def blogpage(request):
                 body=user_text,
                 addr_id=user_addr_id,
             )
-            print("is here 2")
+
             user_blog.save()
-            print("is here 3")
+
         except:
-            return redirect('/mood/')
+            user_title = str(request.POST.get("fTitle"))
+            user_slug = str(binascii.b2a_hex(
+                user_title.encode('utf-8')))[2:-2]
+
+            user_mood = str(request.POST.get('mood'))
+            user_text = str(request.POST.get('text'))
+
+            user_blog = Post(
+                mood=user_mood,
+                title=user_title,
+                slug=user_slug,
+                body=user_text,
+            )
+
+            user_blog.save()
 
     template = get_template('blog/blog.html')
     # 获取模板
